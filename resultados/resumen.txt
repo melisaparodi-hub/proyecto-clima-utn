@@ -1,0 +1,6 @@
+Resultados del analisis de temperatura global
+-------------------------------------------
+Registros analizados: 2115
+Temperatura promedio: -0.0585
+Temperatura maxima: 1.3481
+Temperatura minima: -1.04

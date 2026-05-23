@@ -25,3 +25,42 @@ with open("datos/clima.csv", "r") as archivo:
             temperaturas.append(float(fila["Mean"]))
 
 print("Datos cargados correctamente. Registros encontrados:", len(periodos))
+
+# -----------------------------------------------------------
+# FUNCIONES PARA CALCULAR INDICADORES DE TEMPERATURA
+# -----------------------------------------------------------
+
+# Esta función recorre la lista y va sumando todos los valores
+# para después dividir por la cantidad y obtener el promedio
+def calcular_promedio(lista):
+    suma = 0
+    for valor in lista:
+        suma += valor
+    promedio = suma / len(lista)
+    return promedio
+
+# Esta función recorre la lista comparando cada valor con el mayor
+# encontrado hasta ese momento, y devuelve el más grande
+def calcular_maximo(lista):
+    maximo = lista[0]
+    for valor in lista:
+        if valor > maximo:
+            maximo = valor
+    return maximo
+
+# Esta función hace lo mismo pero al revés, buscando el menor valor
+def calcular_minimo(lista):
+    minimo = lista[0]
+    for valor in lista:
+        if valor < minimo:
+            minimo = valor
+    return minimo
+
+# Se llama a cada función y se muestran los resultados
+promedio = calcular_promedio(temperaturas)
+maximo = calcular_maximo(temperaturas)
+minimo = calcular_minimo(temperaturas)
+
+print("Temperatura promedio:", round(promedio, 4))
+print("Temperatura máxima:", maximo)
+print("Temperatura mínima:", minimo)

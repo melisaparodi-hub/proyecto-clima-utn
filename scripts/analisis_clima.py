@@ -64,3 +64,28 @@ minimo = calcular_minimo(temperaturas)
 print("Temperatura promedio:", round(promedio, 4))
 print("Temperatura máxima:", maximo)
 print("Temperatura mínima:", minimo)
+
+# -----------------------------------------------------------
+# GENERACIÓN DEL GRÁFICO
+# Se usa la librería matplotlib porque permite generar gráficos
+# de forma sencilla para la visualización de datos.
+# -----------------------------------------------------------
+import matplotlib.pyplot as plt
+
+# Se crea el gráfico con los periodos en el eje x y las temperaturas en el eje y
+plt.figure(figsize=(12, 5))
+plt.plot(periodos, temperaturas, color="steelblue", linewidth=0.8)
+
+# Se agregan títulos y etiquetas para que el gráfico sea comprensible
+plt.title("Evolución de la anomalía de temperatura global (1850 - actualidad)")
+plt.xlabel("Período")
+plt.ylabel("Anomalía de temperatura (°C)")
+
+# Se reduce la cantidad de etiquetas en el eje x para que no se superpongan
+plt.xticks(periodos[::100], rotation=45)
+
+plt.tight_layout()
+
+# Se guarda el gráfico en la carpeta resultados
+plt.savefig("resultados/grafico_temperatura.png")
+print("Gráfico guardado en resultados/grafico_temperatura.png")

@@ -65,6 +65,18 @@ print("Temperatura promedio:", round(promedio, 4))
 print("Temperatura máxima:", maximo)
 print("Temperatura mínima:", minimo)
 
+# Se guarda un resumen en un archivo de texto dentro de la carpeta resultados.
+# Esto permite dejar registrados los valores calculados por el script.
+with open("resultados/resumen.txt", "w") as archivo_resumen:
+    archivo_resumen.write("Resultados del analisis de temperatura global\n")
+    archivo_resumen.write("-------------------------------------------\n")
+    archivo_resumen.write(f"Registros analizados: {len(temperaturas)}\n")
+    archivo_resumen.write(f"Temperatura promedio: {round(promedio, 4)}\n")
+    archivo_resumen.write(f"Temperatura maxima: {maximo}\n")
+    archivo_resumen.write(f"Temperatura minima: {minimo}\n")
+
+print("Resumen guardado en resultados/resumen.txt")
+
 # -----------------------------------------------------------
 # GENERACIÓN DEL GRÁFICO
 # Se usa la librería matplotlib porque permite generar gráficos
